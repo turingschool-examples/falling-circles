@@ -1,4 +1,4 @@
-var width, height, droplets;
+var width, height;
 
 function setup() {
   width = 640;
