@@ -17,7 +17,11 @@ function draw() {
   circles.forEach(function (circle) {
     circle.draw();
     circle.moveDown();
-  })
+  });
+}
+
+function mouseClicked() {
+  circles.push(new Circle(mouseX, mouseY, 50, 50));
 }
 
 function Circle(x, y, width, height) {
@@ -33,5 +37,9 @@ Circle.prototype = {
   },
   draw: function () {
     ellipse(this.x, this.y, this.width, this.height);
+    if (this.y > height + this.height / 2) { this.recycle(); }
+  },
+  recycle: function () {
+    this.y = 0 - (this.height / 2);
   }
-}
+};
